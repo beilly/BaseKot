@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BaseKot.iml" filepath="$PROJECT_DIR$/BaseKot.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/basecom/basecom.iml" filepath="$PROJECT_DIR$/basecom/basecom.iml" />
       <module fileurl="file://$PROJECT_DIR$/basestyle/basestyle.iml" filepath="$PROJECT_DIR$/basestyle/basestyle.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseui/baseui.iml" filepath="$PROJECT_DIR$/baseui/baseui.iml" />
     </modules>

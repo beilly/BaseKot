@@ -1,1 +1,1 @@
-include ':app', ':basestyle', ':baseui'
+include ':app', ':basestyle', ':baseui', ':basecom'
