@@ -7,6 +7,9 @@
         android:allowBackup="true" android:label="@string/app_name"
         android:supportsRtl="true">
 
+        <meta-data android:value="@string/umeng_appkey" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="dev" android:name="UMENG_CHANNEL"/>
+
     </application>
 
 </manifest>
