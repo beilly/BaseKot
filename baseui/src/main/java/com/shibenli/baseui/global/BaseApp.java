@@ -23,6 +23,7 @@ public class BaseApp extends Application {
     }
 
     private static BaseApp instance;
+
     public static BaseApp getInstance(){
         return instance;
     }
