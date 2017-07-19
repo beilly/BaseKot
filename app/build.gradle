@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'walle'
 
 android {
     compileSdkVersion 25
@@ -13,16 +14,31 @@ android {
         versionName APP_VERSIONNAME
     }
 
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+    signingConfigs{
+        release{
+            storeFile file("../key.jks")
+            storePassword "weixin_abook"
+            keyAlias "appABook"
+            keyPassword "weixin_abook"
+        }
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+walle {
+    // 指定渠道包的输出路径
+    apkOutputFolder = new File("${project.buildDir}/outputs/channels");
+    // 定制渠道包的APK的文件名称
+    apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+    // 渠道配置文件
+    channelFile = new File("${project.getProjectDir()}/channel.txt")
 }
 
 dependencies {
@@ -30,8 +46,14 @@ dependencies {
     compile project(':baseui')
     compile project(':basestyle')
     compile project(':basecom')
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    debugCompile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
+    debugCompile 'com.facebook.stetho:stetho:1.4.1'
+    debugCompile 'com.squareup.okhttp3:okhttp:3.4.1'
+    debugCompile 'com.facebook.stetho:stetho-js-rhino:1.4.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-
 }
+
+
+// 依赖插件脚本
+apply from: 'tinker-support.gradle'

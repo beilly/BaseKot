@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        textView.text = "hello"
+        textView.text = "hello bugfix"
         titleBar.setMiddleTitleText(getString(R.string.app_name))
     }
 }

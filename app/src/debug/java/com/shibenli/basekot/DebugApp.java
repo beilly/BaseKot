@@ -1,11 +1,8 @@
-package com.shibenli.baseui.global;
-
-import com.tencent.tinker.loader.app.TinkerApplication;
-import com.tencent.tinker.loader.shareutil.ShareConstants;
+package com.shibenli.basekot;
 
 /**
  * 自定义Application.
- * <p>
+ *
  * 注意：这个类集成TinkerApplication类，这里面不做任何操作，所有Application的代码都会放到ApplicationLike继承类当中<br/>
  * <pre>
  * 参数解析：
@@ -14,18 +11,12 @@ import com.tencent.tinker.loader.shareutil.ShareConstants;
  * 参数3：String loaderClassName  Tinker的加载器，使用默认即可
  * 参数4：boolean tinkerLoadVerifyFlag  加载dex或者lib是否验证md5，默认为false
  * </pre>
- *
  * @author wenjiewu
  * @since 2016/11/15
  */
-public class BaseApp extends TinkerApplication {
+public class DebugApp extends App {
 
-    public BaseApp() {
-        this(BaseAppLike.class.getName());
-    }
-
-    public BaseApp(String likeClass) {
-        super(ShareConstants.TINKER_ENABLE_ALL, likeClass,
-                "com.tencent.tinker.loader.TinkerLoader", false);
+    public DebugApp() {
+        super(DebugLike.class.getName());
     }
 }
